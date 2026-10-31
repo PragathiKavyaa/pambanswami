@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pamban Swami - Admin Gateway</title>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: linear-gradient(135deg, #162032 0%, #1B2942 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .login-container-card {
+      background-color: #ffffff;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 20px;
+      padding: 50px 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    .login-brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      color: #1B2942;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .login-brand-tag {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: #FA0073;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      display: block;
+    }
+    .input-wrapper-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .input-wrapper-row label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1B2942;
+    }
+    .input-wrapper-row input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      color: #1B2942;
+      transition: border-color 0.2s;
+    }
+    .input-wrapper-row input:focus { border-color: #FA0073; }
+    .btn-login-submit {
+      width: 100%;
+      background-color: #FA0073;
+      color: #ffffff;
+      border: 1px solid #FA0073;
+      padding: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(250, 0, 115, 0.25);
+      transition: background-color 0.2s;
+      margin-top: 10px;
+    }
+    .btn-login-submit:hover { background-color: #d60062; }
+  </style>
+</head>
+<body>
+  <div class="login-container-card">
+    <h1 class="login-brand-title">Pamban Swami</h1>
+    <span class="login-brand-tag">Management Portal Login</span>
+    <form action="/admin/login" method="POST">
+      <div class="input-wrapper-row">
+        <label>Username / Email</label>
+        <input type="text" name="username" placeholder="Enter administrator username" required>
+      </div>
+      <div class="input-wrapper-row">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="btn-login-submit">Authenticate Securely</button>
+    </form>
+    <div th:if="${error}" style="color: red; margin-bottom: 15px;">
+    Invalid username or password.
+</div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("error") === "true") {
+        const error = document.createElement("p");
+        error.textContent = "Invalid username or password!";
+        error.style.color = "red";
+        error.style.marginBottom = "15px";
+
+        document.querySelector("form").prepend(error);
+    }
+</script>
+</body>
+</html>

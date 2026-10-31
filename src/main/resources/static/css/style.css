@@ -1,0 +1,3163 @@
+
+/* ===================================
+   GLOBAL STYLES
+=================================== */
+
+:root {
+    --primary: #FA0073;
+    --navy: #1B2942;
+    --secondary: #4B5669;
+    --white: #ffffff;
+    --heading-font: 'Outfit', sans-serif;
+    --body-font: 'Manrope', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--navy);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1440px;
+    margin: auto;
+}
+
+
+/* ===================================
+   NAVIGATION
+=================================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.navbar {
+     min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    background: transparent;
+    box-shadow: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo-image {
+    width: 58px;
+    height: 75px;
+    object-fit: contain;
+    background: white;
+    border-radius: 8px;
+}
+
+.logo-text h2 {
+    font-family: var(--heading-font);
+    color: var(--primary);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.logo-text span {
+    color: var(--primary);
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links li a {
+    font-size: 16px;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--primary);
+}
+
+.nav-links .nav-contact {
+    background: var(--primary);
+    color: white;
+    padding: 12px 23px;
+    border-radius: 9px;
+}
+
+.nav-links .nav-contact:hover {
+    background: var(--navy);
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: var(--primary);
+    color: white;
+    padding: 10px 13px;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+/* ===================================
+   HERO SECTION
+=================================== */
+
+.hero {
+    min-height: 670px;
+    height: 100vh;
+    max-height: 850px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(27, 41, 66, 0.96) 0%,
+            rgba(27, 41, 66, 0.85) 36%,
+            rgba(27, 41, 66, 0.35) 72%,
+            rgba(27, 41, 66, 0.22) 100%
+        ),
+        url('../images/herobg.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(27, 41, 66, 0.35),
+        transparent 55%
+    );
+    pointer-events: none;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+
+
+/* ===================================
+   HERO LEFT CONTENT
+=================================== */
+
+.hero-content {
+    width: 64%;
+    max-width: 780px;
+    color: white;
+}
+
+.hero-label {
+    color: #ff4b9b;
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.hero-content h1 {
+    font-family: var(--heading-font);
+    font-size: clamp(42px, 4.5vw, 68px);
+    line-height: 1.02;
+    font-weight: 800;
+    margin-bottom: 22px;
+    letter-spacing: -1.5px;
+}
+
+.hero-description {
+    max-width: 650px;
+    font-size: 19px;
+    line-height: 1.65;
+    color: #f2f3f7;
+    margin-bottom: 24px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 6px 20px rgba(250, 0, 115, 0.3);
+}
+
+.btn-primary:hover {
+    background: #d90063;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.7);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--navy);
+}
+
+
+/* ===================================
+   TRUST FEATURES
+=================================== */
+
+.trust-features {
+    border-top: 1px solid rgba(255,255,255,0.22);
+    margin-top: 34px;
+    padding-top: 26px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.trust-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    border-radius: 7px;
+    font-size: 18px;
+}
+
+
+/* ===================================
+   CARE INFORMATION CARD
+=================================== */
+
+.care-card {
+    width: 310px;
+    flex-shrink: 0;
+    padding: 17px 13px 0;
+    color: white;
+    border: 2px solid #ff55a9;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.19);
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 0 15px rgba(250, 0, 115, 0.4),
+        inset 0 0 18px rgba(255,255,255,0.12);
+}
+
+.care-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+    padding: 0 3px 15px;
+}
+
+.clock-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    background: white;
+    color: var(--primary);
+    border: 4px solid var(--primary);
+    outline: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.care-script {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-style: italic;
+}
+
+.care-heading h2 {
+    font-family: var(--heading-font);
+    font-size: 22px;
+    line-height: 1.15;
+}
+
+.pink-text {
+    color: var(--primary);
+}
+
+.care-divider {
+    height: 1px;
+    border-top: 1px dashed rgba(255,255,255,0.5);
+    position: relative;
+    margin: 3px 0 15px;
+    text-align: center;
+}
+
+.care-divider span {
+    position: relative;
+    top: -11px;
+    padding: 0 12px;
+    color: var(--primary);
+    background: rgba(83, 69, 100, 0.75);
+}
+
+.care-description {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #f5eaf1;
+    margin-bottom: 15px;
+}
+
+.care-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    background: white;
+    border-radius: 17px;
+    color: #172033;
+    transition: 0.3s;
+}
+
+.care-option:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.option-icon {
+    width: 49px;
+    height: 49px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff0f7;
+    color: var(--primary);
+    font-size: 23px;
+    border-radius: 12px;
+}
+
+.option-content {
+    flex: 1;
+}
+
+.option-content h3 {
+    font-family: var(--heading-font);
+    font-size: 19px;
+    line-height: 1.3;
+}
+
+.option-content p {
+    font-size: 11px;
+    color: var(--secondary);
+    line-height: 1.4;
+}
+
+.option-arrow {
+    width: 33px;
+    height: 33px;
+    border: 1px solid #d4d8df;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 13px;
+}
+
+.care-footer {
+    background: rgba(250, 0, 115, 0.85);
+    margin: 10px -13px 0;
+    padding: 8px 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.3;
+    border-radius: 0 0 17px 17px;
+}
+
+
+/* ===================================
+   TABLET RESPONSIVE
+=================================== */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links li a {
+        font-size: 13px;
+    }
+
+    .logo-text h2 {
+        font-size: 23px;
+    }
+
+    .hero-container {
+        gap: 20px;
+    }
+
+    .hero-content {
+        width: 62%;
+    }
+
+    .care-card {
+        width: 285px;
+    }
+
+    .trust-features {
+        gap: 15px;
+    }
+}
+
+
+/* ===================================
+   MOBILE NAVIGATION
+=================================== */
+
+@media (max-width: 850px) {
+
+    .header {
+        position: absolute;
+    }
+
+    .navbar {
+        min-height: 75px;
+    }
+
+    .logo-image {
+        width: 48px;
+        height: 60px;
+    }
+
+    .logo-text h2 {
+        font-size: 22px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 15px 25px 22px;
+        background: white;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 12px 5px;
+        font-size: 15px;
+    }
+
+    .nav-links .nav-contact {
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        padding-top: 75px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 60px;
+        padding-bottom: 45px;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(39px, 8vw, 58px);
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .care-card {
+        width: 100%;
+        max-width: 380px;
+        align-self: center;
+    }
+}
+
+
+/* ===================================
+   SMALL MOBILE
+=================================== */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .hero {
+        background-position: 58% center;
+    }
+
+    .hero-container {
+        padding-top: 45px;
+    }
+
+    .hero-label {
+        font-size: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .trust-features {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .care-card {
+        max-width: 100%;
+    }
+}
+
+/* Note: No global document overrides or :root blocks are included to guarantee safe code integration */
+
+.care-hero-section {
+  width: 100%;
+  padding: 80px 0;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.care-hero-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 60px; /* Precise layout track spacing between columns */
+}
+
+/* ==========================================================================
+   Left Column: Image Framework & Floating Overlay Component Card
+   ========================================================================== */
+.care-hero-media-col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.hero-main-img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 24px 4px 24px 4px; /* Smooth customized corner curvatures matching modern UI aesthetics */
+  box-shadow: 0 20px 40px rgba(27, 41, 66, 0.06);
+  display: block;
+}
+
+/* Floating dark-navy overlay capsule badge card styling */
+.floating-heart-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1B2942; /* Requested dark color code blueprint */
+  border-radius: 16px;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 12px 30px rgba(27, 41, 66, 0.25);
+  width: max-content;
+  z-index: 10;
+}
+
+.badge-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #FA0073; /* Requested primary magenta highlight accent code */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-icon-circle svg {
+  width: 18px;
+  height: 18px;
+  color: #ffffff;
+}
+
+.badge-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-lead-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.badge-sub-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   Right Column: Copy Content & Checklist Formatting Configurator
+   ========================================================================== */
+.care-hero-content-col {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.care-main-heading {
+  font-family: 'Outfit', sans-serif; /* Requested heading element rule */
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1B2942; /* Requested main identity title tint */
+  line-height: 1.15;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.5px;
+}
+
+.care-lead-description {
+  font-family: 'Manrope', sans-serif; /* Requested tracking body parameter rule */
+  font-size: 1.1rem;
+  color: #4B5669; /* Requested description formatting gray color code */
+  line-height: 1.6;
+  margin: 0 0 36px 0;
+  max-width: 520px;
+}
+
+/* Checklist layout framework vectors group matching design */
+.care-features-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.check-icon-node {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid #FA0073; /* Clear custom border track accent profile outlines */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.check-icon-node svg {
+  width: 11px;
+  height: 11px;
+  color: #FA0073;
+}
+
+.checklist-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1B2942;
+}
+
+/* ==========================================================================
+   Action Solid Filled Interactive Capsule Button
+   ========================================================================== */
+.btn-explore-services {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #FA0073; /* Primary filled color link */
+  border: 1px solid #FA0073;
+  padding: 16px 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 20px rgba(250, 0, 115, 0.2);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-explore-services:hover {
+  background-color: #d60062; /* Slightly rich deep shade transitions on active user hover events */
+  border-color: #d60062;
+  transform: translateY(-1px);
+}
+
+.btn-arrow {
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.btn-explore-services:hover .btn-arrow {
+  transform: translateX(4px); /* Interactive macro micro-arrow horizontal shift animation */
+}
+
+/* ==========================================================================
+   Mobile Responsive Screen Viewport Adaptive Fallbacks
+   ========================================================================== */
+@media (max-width: 992px) {
+  .care-hero-container {
+    flex-direction: column; /* Collapses layout direction downwards into standard vertical stream profiles */
+    gap: 60px;
+    text-align: center;
+  }
+  .care-hero-content-col {
+    align-items: center;
+  }
+  .care-main-heading {
+    font-size: 2.8rem;
+  }
+  .care-features-checklist {
+    align-items: flex-start; /* Keeps checkmarks flush left for clear alignment readability on smaller tabs viewports */
+  }
+}
+
+@media (max-width: 480px) {
+  .care-main-heading {
+    font-size: 2.2rem;
+  }
+  .hero-main-img {
+    height: 400px;
+  }
+  .floating-heart-badge {
+    padding: 10px 18px;
+  }
+}
+
+.care-services-section {
+  width: 100%;
+  padding: 80px 0;
+  background-color: #FDF7F8; /* Soft pale pink/white canvas background matching figma preview shade exactly */
+}
+
+.services-content-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   Header Elements Architecture 
+   ========================================================================== */
+.services-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.services-badge-tag {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #FA0073; /* Vibrant theme pink */
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.services-main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #1B2942; /* Deep Blue Title Color code */
+  margin-bottom: 8px;
+}
+
+.heart-separator-icon {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.services-sub-description {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.1rem;
+  color: #4B5669; /* Description Text color formatting */
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Grid System Setup Enforces 3 Columns
+   ========================================================================== */
+.services-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+  margin-bottom: 50px; /* Separates columns rows smoothly from bottom ribbon track */
+}
+
+/* Promo box occupies the full row */
+.services-info-promo-box {
+    grid-column: 1 / -1;
+}
+.service-card {
+  position: relative !important;
+  border-radius: 20px !important; 
+  overflow: hidden !important; /* Forces zoom scale animations to stay within card bounds */
+  box-shadow: 0 8px 24px rgba(27, 41, 66, 0.04) !important;
+  height: 100% !important;
+}
+
+.card-image-crop-box {
+  position: relative !important;
+  width: 100% !important;
+  padding-top: 75% !important; /* Strict 4:3 Aspect crop template ratio metrics */
+  overflow: hidden !important;
+}
+
+.service-zoom-img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* 1 Second Scale zoom transformation ease track triggers */
+.service-card:hover .service-zoom-img {
+  transform: scale(1.08) !important; 
+}
+
+/* Pill Labels Overlays */
+.service-label-pill {
+  position: absolute !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  right: 20px !important;
+  border-radius: 50px !important; 
+  padding: 14px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  z-index: 5 !important;
+  box-shadow: 0 4px 15px rgba(27, 41, 66, 0.12) !important;
+}
+
+.label-deep-blue { background-color: #1B2942 !important; color: #ffffff !important; }
+.label-vibrant-pink { background-color: #FA0073 !important; color: #ffffff !important; }
+
+.pill-icon-badge {
+  font-size: 1.1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.pill-title-string {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   Column 12 Promo Content Box Card Styling (Flat White Card Fill)
+   ========================================================================== */
+.services-info-promo-box {
+  background-color: #ffffff !important; /* Flat white container background card frame */
+  border-radius: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 32px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 8px 24px rgba(27, 41, 66, 0.04) !important;
+}
+
+.promo-text-paragraph {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 500 !important;
+  line-height: 1.8 !important;
+  color: #1B2942 !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   NEW CODED FIX: Bottom Extra Content Pill Ribbon Banner Row Styling
+   ========================================================================== */
+.services-footer-banner-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.talk-team-pill-banner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid rgba(250, 0, 115, 0.2); /* Soft highlight pink border line */
+  border-radius: 100px; /* Perfect circular capsule pill design profile shape */
+  padding: 10px 14px 10px 28px;
+  max-width: 680px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(250, 0, 115, 0.03);
+}
+
+.banner-left-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.banner-heart-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.banner-alert-string {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1B2942;
+}
+
+.btn-talk-our-team {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #FA0073;
+  text-decoration: none;
+  border: 1px solid rgba(250, 0, 115, 0.35);
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-talk-our-team:hover {
+  background-color: #FA0073;
+  color: #ffffff;
+  border-color: #FA0073;
+}
+
+/* Responsive Viewports adaptive scales handles */
+@media (max-width: 1024px) {
+  .services-grid-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .talk-team-pill-banner {
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  .banner-left-content {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .btn-talk-our-team {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .services-grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .services-main-title {
+        font-size: 2.2rem !important;
+    }
+}
+
+.physio-section {
+  width: 100%;
+  padding: 90px 0;
+  background-color: #ffffff;
+}
+
+.physio-content-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   Header Element & Pill Line Arrangements
+   ========================================================================== */
+.physio-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.physio-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.badge-line {
+  width: 60px;
+  height: 1.5px;
+  background-color: #FA0073; /* Spec Pink line markers */
+}
+
+.physio-badge-tag {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #FA0073;
+}
+
+.physio-main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: #1B2942; /* Main dark corporate tone */
+  line-height: 1.2;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.physio-main-title .highlight-pink {
+  color: #FA0073;
+}
+
+.floating-house-indicator {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(250, 0, 115, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-house-indicator svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ==========================================================================
+   2-Column Grid Architecture (Enforces 2 Grid Rows Exactly)
+   ========================================================================== */
+.physio-grid-container {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important; /* Perfect 2-column distribution */
+  gap: 32px !important;
+  align-items: stretch !important;
+  margin-bottom: 70px;
+}
+
+.physio-card {
+  position: relative !important;
+  border-radius: 24px !important;
+  overflow: hidden !important; /* Clips the scaling zoom animation within bounds width */
+  box-shadow: 0 10px 30px rgba(27, 41, 66, 0.04) !important;
+}
+
+.physio-media-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  padding-top: 56.25% !important; /* Modern wide aspect proportion tracking ratio */
+  overflow: hidden !important;
+}
+
+.physio-zoom-img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* ZOOM TRIGGER RULE: Contained cleanly inside width bounds over exactly 1 second */
+.physio-card:hover .physio-zoom-img {
+  transform: scale(1.06) !important;
+}
+
+/* Overlaid Floating Label Badges */
+.physio-label-pill {
+  position: absolute !important;
+  bottom: 24px !important;
+  left: 24px !important;
+  border-radius: 50px !important;
+  padding: 12px 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  z-index: 5 !important;
+  box-shadow: 0 6px 20px rgba(27, 41, 66, 0.18) !important;
+}
+
+.pill-deep-blue { background-color: #1B2942 !important; color: #ffffff !important; }
+.pill-vibrant-pink { background-color: #FA0073 !important; color: #ffffff !important; }
+
+.physio-pill-icon {
+  font-size: 1.1rem !important;
+  display: flex !important;
+  align-items: center;
+}
+
+.physio-pill-text {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+}
+
+/* ==========================================================================
+   Bottom Dark-Blue Action Ribbon Card Styling
+   ========================================================================== */
+.physio-cta-banner-wrapper {
+  width: 100%;
+}
+
+.physio-dark-cta-card {
+  position: relative;
+  background-image: url('../images/romanticbg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 24px;
+  padding: 44px 50px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(27, 41, 66, 0.15);
+}
+
+/* Left/Right floral vectors matching figma mockup background decoration */
+.cta-vector-left, .cta-vector-right {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  opacity: 0.08;
+  background-image: radial-gradient(#FA0073 20%, transparent 20%), radial-gradient(#ffffff 20%, transparent 20%);
+  background-size: 15px 15px;
+}
+.cta-vector-left { left: -30px; bottom: -30px; }
+.cta-vector-right { right: -20px; top: -20px; }
+
+.cta-inner-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.cta-text-side {
+  max-width: 580px;
+}
+
+.cta-heading-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.cta-subtext-description {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+/* Action Solid Pink Consultation trigger button */
+.btn-physio-consult {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #FA0073;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  display: inline-block;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(250, 0, 115, 0.3);
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-physio-consult:hover {
+  background-color: #d60062;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Responsive Viewport Scalability Fallbacks
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .physio-grid-container { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .cta-inner-content { flex-direction: column; text-align: center; gap: 24px; }
+  .physio-dark-cta-card { padding: 35px 24px; }
+}
+
+@media (max-width: 768px) {
+  .physio-main-title { font-size: 2.3rem; }
+  .floating-house-indicator { display: none; }
+  .physio-label-pill { padding: 10px 20px !important; bottom: 16px !important; left: 16px !important; }
+  .physio-pill-text { font-size: 0.95rem !important; }
+  .btn-physio-consult { width: 100%; text-align: center; }
+}
+
+/* ==========================================================================
+   Section Main Backdrop Properties (Premium Navy Theme Backing Canvas)
+   ========================================================================== */
+.choose-us-section {
+  width: 100%;
+  padding: 100px 0;
+  background: linear-gradient(135deg, #162032 0%, #1B2942 100%); /* Deep Navy theme matching preview background */
+}
+
+.choose-us-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   Header Content Typography Layout Area
+   ========================================================================== */
+.choose-us-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.choose-us-tagline {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #FA0073; /* Spec branding vibrant pink highlight accent color code */
+  font-weight: 700;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.choose-us-main-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  letter-spacing: -0.3px;
+}
+
+.choose-us-description {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7); /* Slightly muted soft high contrast text reading copy */
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Features Cards Layout 4-Column Grid System
+   ========================================================================== */
+.choose-us-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+
+/* Base Structural Card parameters */
+.choose-card {
+  position: relative !important;
+  background-color: rgba(255, 255, 255, 0.04); /* Subtly translucent default card frame look */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Faint structural placeholder outline */
+  border-radius: 16px;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  
+  /* High performance cubic-bezier easing timelines for backgrounds and outer dimensions triggers over 0.4s */
+  transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.4s cubic-bezier(0.25, 1, 0.4, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.choose-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* Rounded Vector Icon Badge Plate */
+.choose-icon-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #FA0073; /* Filled vibrant pink circles backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  margin-bottom: 28px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(250, 0, 115, 0.25);
+}
+
+.choose-icon-badge svg {
+  width: 20px;
+  height: 20px;
+}
+
+.rupee-symbol-asset {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Typography elements deep card interiors settings */
+.choose-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.choose-card-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: #B2BDCD; /* Requested gray slate text shade color code formatting */
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Figma Mockup Default Setup (Card 02 starts activated)
+   ========================================================================== */
+.choose-card.initial-active {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #FA0073; /* Core pink signature active border lines marker */
+  box-shadow: 0 10px 30px rgba(27, 41, 66, 0.2);
+}
+
+/* ==========================================================================
+   Dynamic Interactivity Hover States Configurations
+   ========================================================================== */
+
+/* 1. When the user moves their mouse over the grid, remove the initial fallback default highlight from card 02 */
+.choose-us-grid:hover .choose-card.initial-active {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+/* 2. Dynamically apply the background shift, border-color change, and elevation to the newly hovered item card */
+.choose-card:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: #FA0073 !important; /* Re-assigns active hot pink framing track instantly */
+  box-shadow: 0 12px 35px rgba(20, 30, 48, 0.3) !important;
+  transform: translateY(-3px); /* Soft 3px directional layout container lift */
+}
+
+/* 3. Re-enforce highlight conditions if the user's cursor is directly hovering over card 02 */
+.choose-card.initial-active:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: #FA0073 !important;
+}
+
+/* ==========================================================================
+   Responsive Adaptability Configurations (Tablet & Mobile Breakpoints)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .choose-us-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* Spreads layout across 2 columns seamlessly for tablets viewport */
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .choose-us-main-heading {
+    font-size: 2.2rem;
+  }
+  .choose-card {
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .choose-us-grid {
+    grid-template-columns: 1fr !important; /* Spreads cards down as a clean continuous single stream waterfall line for mobile */
+  }
+}
+
+/* Note: No global rule overrides or :root blocks are included to guarantee safe code integration */
+
+.pro-care-section {
+  width: 100%;
+  padding: 100px 0;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pro-care-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 64px; /* Balanced layout track spacing between text and picture columns */
+}
+
+/* ==========================================================================
+   Left Side Column Content & Typography Hierarchy Layout Area
+   ========================================================================== */
+.pro-care-content-col {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pro-care-tagline {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #FA0073; /* Spec branding vibrant pink highlight accent color code */
+  display: block;
+  margin-bottom: 24px;
+}
+
+.pro-care-quote-mark {
+  font-family: 'Outfit', sans-serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: rgba(250, 0, 115, 0.18); /* Soft faint pink transparent tint shadow matching your mockup exactly */
+  line-height: 1;
+  margin-bottom: -15px; /* Creates elegant negative overlap baseline alignment under the heading */
+}
+
+.pro-care-main-heading {
+  font-family: 'Outfit', sans-serif; /* Spec heading element rule font */
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1B2942; /* Spec dark navy tone color formatting code */
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.5px;
+}
+
+.pro-care-description {
+  font-family: 'Manrope', sans-serif; /* Spec tracking body parameter rule font */
+  font-size: 1.05rem;
+  color: #4B5669; /* Spec description formatting gray color code */
+  line-height: 1.65;
+  margin: 0 0 40px 0;
+  max-width: 540px;
+}
+
+/* Action Solid Pink Call-to-Action Link Button */
+.btn-pro-care-contact {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #FA0073;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 6px; /* Sharper corner bounding parameters mirroring layout screenshot profiles */
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 18px rgba(250, 0, 115, 0.25);
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-pro-care-contact:hover {
+  background-color: #d60062; /* Smooth rich transition shift upon user cursor click triggers */
+  transform: translateY(-1px);
+}
+
+.btn-arrow {
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.btn-pro-care-contact:hover .btn-arrow {
+  transform: translateX(4px); /* Interactive micro horizontal drift animation track */
+}
+
+/* ==========================================================================
+   Right Side Column Media Portrait Cropping Frame
+   ========================================================================== */
+.pro-care-media-col {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
+}
+
+.pro-care-image-frame {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px; /* Smooth card external radius rounding match */
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(27, 41, 66, 0.05);
+}
+
+.pro-care-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Mobile Responsive Screen Viewport Adaptive Breakpoints Fallbacks
+   ========================================================================== */
+@media (max-width: 992px) {
+  .pro-care-container {
+    flex-direction: column; /* Stacks columns layout downwards into a single vertical river stream flow */
+    gap: 50px;
+    text-align: center;
+  }
+  .pro-care-content-col {
+    align-items: center;
+  }
+  .pro-care-main-heading {
+    font-size: 2.5rem;
+  }
+  .pro-care-quote-mark {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .pro-care-main-heading {
+    font-size: 2rem;
+  }
+  .btn-pro-care-contact {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   OUR PROMISES - CRITICAL OVERRIDE RENDER FIX
+   ========================================================================== */
+
+#our-promises.promises-section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 450px !important; /* Forces container open even if parent flex tracks collapse */
+  padding: 100px 0 !important;
+  background-image: url('../images/pastelpink.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  clear: both !important; /* Prevents floating elements above from breaking layout flow */
+}
+
+#our-promises .promises-container {
+  max-width: 1240px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1.8fr !important;
+  gap: 60px !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   Right Side Column: 2x2 Matrix Cards Base Structure
+   ========================================================================== */
+#our-promises .promises-matrix-col {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 24px !important;
+}
+
+#our-promises .promise-card {
+  position: relative !important;
+  background-color: #ffffff !important; /* Solid white card background */
+  border-radius: 16px !important;
+  padding: 30px 24px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 4px 12px rgba(27, 41, 66, 0.02) !important; /* Light baseline default shadow */
+  overflow: hidden !important;
+  transform: translateY(0);
+  
+  /* Smooth transition easing track for the container transformations and shadows over 0.4s */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important,
+              box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Default state of the top-right hot pink decorative corner flag */
+#our-promises .card-pink-flag {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 50px !important; /* Base size */
+  height: 25px !important;
+  background-color: #FA0073 !important;
+  border-radius: 0 0 0 10px !important;
+  
+  /* Smooth transition easing track specifically for the flag expanding size rules */
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important,
+              height 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+#our-promises .card-flex-row {
+  display: flex !important;
+  align-items: start !important;
+  gap: 16px !important;
+}
+
+#our-promises .promise-check-badge {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid #FA0073 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #FA0073 !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  flex-shrink: 0 !important;
+}
+
+#our-promises .promise-card-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  text-align: left !important;
+}
+
+#our-promises .promise-card-title {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #1B2942 !important;
+  margin: 0 !important;
+}
+
+#our-promises .promise-card-text {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: #4B5669 !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   NEW INTERACTIVE DYNAMIC HOVER STATES 
+   ========================================================================== */
+
+#our-promises .promise-card:hover {
+  transform: translateY(-4px) !important; /* Soft card float upward lift motion */
+  box-shadow: 0 12px 30px rgba(27, 41, 66, 0.08) !important; /* Triggers the prominent deep shadow */
+}
+
+/* INCREASE PINK CORNER SIZE ON HOVER: Flags grow wider and deeper over 0.4s */
+#our-promises .promise-card:hover .card-pink-flag {
+  width: 65px !important;   /* Increased pink width boundary context */
+  height: 32px !important;  /* Increased pink depth boundary context */
+}
+
+/* ==========================================================================
+   Responsive Breakpoints Fallbacks
+   ========================================================================== */
+@media (max-width: 1024px) {
+  #our-promises .promises-container {
+    grid-template-columns: 1fr !important;
+    gap: 45px !important;
+    text-align: center !important;
+  }
+  #our-promises .promises-intro-col {
+    align-items: center !important;
+  }
+}
+@media (max-width: 680px) {
+  #our-promises .promises-matrix-col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Note: No global overrides or :root files to protect existing styles in your project */
+
+.steps-section {
+  width: 100%;
+  padding: 100px 0;
+  background-color: #ffffff; /* Crisp white canvas backing matching layout screenshot */
+}
+
+.steps-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   Header Elements Hierarchy Typography Styling
+   ========================================================================== */
+.steps-section-header {
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.steps-tagline {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #FA0073; /* Spec branding vibrant pink highlight accent color code */
+  display: block;
+  margin-bottom: 16px;
+}
+
+.steps-main-heading {
+  font-family: 'Outfit', sans-serif; /* Spec heading element rule font */
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1B2942; /* Spec dark navy tone color formatting code */
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.steps-description {
+  font-family: 'Manrope', sans-serif; /* Spec tracking body parameter rule font */
+  font-size: 1.05rem;
+  color: #4B5669; /* Spec description formatting gray color code */
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Horizontal Timeline Track & Grid Layout System
+   ========================================================================== */
+.timeline-stepper-box {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* Balanced symmetrical 3-column rows distribution */
+  gap: 40px !important;
+  position: relative; /* Hooks center lines baseline context coordinate anchors */
+}
+
+/* Faint horizontal connecting baseline thread layout */
+.timeline-connecting-bar {
+  position: absolute;
+  top: 48px; /* Centers vector bar exactly behind cross axis profiles of the 96px circles */
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(250, 0, 115, 0.25) 50%, transparent 50%); /* Dotted aesthetic template track */
+  background-size: 12px 1px;
+  z-index: 1;
+}
+
+/* Individual columns nodes flow blocks */
+.timeline-step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 5; /* Layers elements over background connecting baseline thread layout lines */
+}
+
+/* ==========================================================================
+   Circular Icon Badges & Small Numeric Subtags
+   ========================================================================== */
+.icon-badge-holder {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: #FDF7F8; /* Soft pink-tinted circles backing backdrop */
+  border: 1px solid rgba(250, 0, 115, 0.15); /* Faint outline container frame trace track */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FA0073; /* Icons paint color code formatting */
+  margin-bottom: 28px;
+}
+
+.icon-badge-holder svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Small numeric tag attached to upper-right boundary node context templates */
+.step-numeric-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #FA0073; /* Filled hot pink step count tag circles background */
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(250, 0, 115, 0.3);
+}
+
+/* ==========================================================================
+   Text Element Clusters Interior Node Settings
+   ========================================================================== */
+.step-text-content {
+  max-width: 280px; /* Constrains column block widths for absolute grid alignment readability */
+}
+
+.step-node-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1B2942;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.step-node-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: #4B5669;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Adaptability Configurations (Tablet & Mobile Breakpoints)
+   ========================================================================== */
+@media (max-width: 912px) {
+  .timeline-stepper-box {
+    grid-template-columns: 1fr !important; /* Converts flow layout cleanly into a vertical stream line cascade stack */
+    gap: 48px !important;
+  }
+  
+  /* Deactivates center running horizontal line on thin vertical screens profiles */
+  .timeline-connecting-bar {
+    display: none !important;
+  }
+  
+  .timeline-step-node {
+    flex-direction: row; /* Arranges icon badges to sit side-by-side beside descriptions for smartphone clarity */
+    text-align: left;
+    gap: 24px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  
+  .icon-badge-holder {
+    margin-bottom: 0; /* Clear bottom margins to synchronize height alignments */
+    flex-shrink: 0;
+  }
+  
+  .step-text-content {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .steps-main-heading {
+    font-size: 2.2rem;
+  }
+  .timeline-step-node {
+    flex-direction: column; /* Reverts cleanly back to absolute center column block alignments for tiny mobile viewports scales */
+    text-align: center;
+  }
+}
+
+/* Note: No global rule overrides or :root blocks are included to guarantee safe code integration */
+
+/* Preserving your design layout variables and adding image scaling constraints */
+
+.google-find-section {
+  width: 100%;
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.google-find-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 48px;
+  box-sizing: border-box;
+  background-color: #FDF7F8; /* Soft pink-tinted backdrop canvas */
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Left Column Details */
+.google-find-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FIXED: Sizing and rendering properties for your custom Google logo asset */
+.google-brand-logo {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.google-custom-logo-img {
+  height: 40px; /* Locks proportional height scaling natively */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.google-find-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1B2942;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.3px;
+}
+
+.google-find-description {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  color: #4B5669;
+  line-height: 1.5;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* Right Column Card Container */
+.google-business-card {
+  flex: 1.2;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(27, 41, 66, 0.04);
+  max-width: 580px;
+  width: 100%;
+}
+
+.card-inner-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.profile-header-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar-frame {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #eaeaea;
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.business-profile-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1B2942;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.reviews-rating-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+}
+
+.numeric-score {
+  font-weight: 700;
+  color: #1B2942;
+}
+
+.star-vector-group {
+  display: flex;
+  gap: 2px;
+  color: #FFB300;
+  font-size: 1rem;
+}
+
+.reviews-count-label {
+  color: #777777;
+}
+
+.profile-address-row {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+}
+
+.map-marker-badge {
+  color: #FA0073;
+  margin-top: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.address-string-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #555555;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Action Link Buttons */
+.btn-google-business-profile {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FA0073;
+  background-color: transparent;
+  text-decoration: none;
+  border: 1px solid #FA0073;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-google-business-profile:hover {
+  background-color: #FA0073;
+  color: #ffffff;
+}
+
+.btn-arrow-external {
+  font-size: 1rem;
+}
+
+/* Responsive Adaptive Fallbacks */
+@media (max-width: 992px) {
+  .google-find-container {
+    flex-direction: column;
+    padding: 45px 30px;
+    gap: 40px;
+    text-align: center;
+  }
+  .google-find-text-col {
+    align-items: center;
+  }
+  .google-find-heading {
+    font-size: 2.2rem;
+  }
+  .profile-header-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .profile-details-block {
+    align-items: center;
+  }
+  .profile-address-row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .google-find-heading {
+    font-size: 1.8rem;
+  }
+  .google-business-card {
+    padding: 24px 20px;
+  }
+  .business-profile-title {
+    font-size: 1.25rem;
+  }
+  .address-string-value {
+    font-size: 0.95rem;
+  }
+  .btn-google-business-profile {
+    width: 100%;
+  }
+}
+
+/* Note: No global overrides or :root fields to protect existing styles in your project */
+
+/* Preserving your design layout variables and adding image scaling constraints */
+
+.google-find-section {
+  width: 100%;
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.google-find-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 48px;
+  box-sizing: border-box;
+  background-color: #FDF7F8; /* Soft pink-tinted backdrop canvas */
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Left Column Details */
+.google-find-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FIXED: Sizing and rendering properties for your custom Google logo asset */
+.google-brand-logo {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.google-custom-logo-img {
+  height: 40px; /* Locks proportional height scaling natively */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.google-find-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1B2942;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.3px;
+}
+
+.google-find-description {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  color: #4B5669;
+  line-height: 1.5;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* Right Column Card Container */
+.google-business-card {
+  flex: 1.2;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(27, 41, 66, 0.04);
+  max-width: 580px;
+  width: 100%;
+}
+
+.card-inner-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.profile-header-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar-frame {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #eaeaea;
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.business-profile-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1B2942;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.reviews-rating-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+}
+
+.numeric-score {
+  font-weight: 700;
+  color: #1B2942;
+}
+
+.star-vector-group {
+  display: flex;
+  gap: 2px;
+  color: #FFB300;
+  font-size: 1rem;
+}
+
+.reviews-count-label {
+  color: #777777;
+}
+
+.profile-address-row {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+}
+
+.map-marker-badge {
+  color: #FA0073;
+  margin-top: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.address-string-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #555555;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Action Link Buttons */
+.btn-google-business-profile {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FA0073;
+  background-color: transparent;
+  text-decoration: none;
+  border: 1px solid #FA0073;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-google-business-profile:hover {
+  background-color: #FA0073;
+  color: #ffffff;
+}
+
+.btn-arrow-external {
+  font-size: 1rem;
+}
+
+/* Responsive Adaptive Fallbacks */
+@media (max-width: 992px) {
+  .google-find-container {
+    flex-direction: column;
+    padding: 45px 30px;
+    gap: 40px;
+    text-align: center;
+  }
+  .google-find-text-col {
+    align-items: center;
+  }
+  .google-find-heading {
+    font-size: 2.2rem;
+  }
+  .profile-header-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .profile-details-block {
+    align-items: center;
+  }
+  .profile-address-row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .google-find-heading {
+    font-size: 1.8rem;
+  }
+  .google-business-card {
+    padding: 24px 20px;
+  }
+  .business-profile-title {
+    font-size: 1.25rem;
+  }
+  .address-string-value {
+    font-size: 0.95rem;
+  }
+  .btn-google-business-profile {
+    width: 100%;
+  }
+}
+
+/* Note: No global overrides or :root fields to protect existing styles in your project */
+
+.care-contact-section {
+  width: 100%;
+  padding: 100px 0;
+  background-image: url('../images/Compassionate.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.care-contact-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Header Element Typography Settings
+   ========================================================================== */
+.contact-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-tagline {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #FA0073; /* Spec branding vibrant pink highlight accent color code */
+  display: block;
+  margin-bottom: 16px;
+}
+
+.contact-main-heading {
+  font-family: 'Outfit', sans-serif; /* Spec heading element rule font */
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1B2942; /* Spec dark navy tone color formatting code */
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.contact-description {
+  font-family: 'Manrope', sans-serif; /* Spec tracking body parameter rule font */
+  font-size: 1.05rem;
+  color: #4B5669; /* Spec description formatting gray color code */
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Asymmetric Multi-Column Matrix Container Layout 
+   ========================================================================== */
+.contact-grid-container {
+  display: grid !important;
+  grid-template-columns: 1fr 1.6fr !important;
+  gap: 28px !important;
+  align-items: stretch !important;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: Get In Touch Sidebar Card (Deep Blue Gradient Panel)
+   ========================================================================== */
+.get-in-touch-sidebar-card {
+  background-image: url('../images/getintouch.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  padding: 44px 35px;
+  box-sizing: border-box;
+  height: 100%;
+  color: #ffffff;
+  box-shadow: 0 12px 35px rgba(27, 41, 66, 0.12);
+}
+
+.sidebar-heading-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+}
+
+.sidebar-sub-description {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+}
+
+/* Metadata list grid configuration */
+.sidebar-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.meta-list-item-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.meta-badge-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FA0073; /* Core pink branding circle backplate overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.meta-badge-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.meta-text-block-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-cell-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 700;
+}
+
+.meta-cell-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: Core White Form Card Structure Details
+   ========================================================================== */
+.interactive-form-holder-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(27, 41, 66, 0.08); /* Clean default bounding card trace track */
+  border-radius: 20px;
+  padding: 44px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(27, 41, 66, 0.03);
+}
+
+.callback-enquiry-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+/* Selection toggle row tabs custom styling metrics */
+.form-selection-tab-bar-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #FDF7F8; /* Muted slate background track behind buttons */
+  padding: 6px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+.tab-toggle-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #4B5669;
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Active Tab Class Highlight (Flips color fill instantly to hot pink) */
+.tab-toggle-btn.active-tab-state {
+  background-color: #FA0073;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(250, 0, 115, 0.25);
+}
+
+/* Inner inputs 2x2 grid splitter rules configuration */
+.form-inputs-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 20px;
+}
+
+.input-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.full-width-field-span {
+  grid-column: span 2; /* Forces service list and textareas to expand full-width */
+}
+
+.field-label-tag {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1B2942;
+}
+
+.required-star {
+  color: #FA0073;
+  margin-left: 3px;
+}
+
+/* Standard Base String Text input styling classes */
+.form-string-input,
+.form-textarea-message-box {
+  width: 100%;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: #1B2942;
+  background-color: #ffffff;
+  border: 1px solid #D1D5DB; /* Standard sleek line boundary border */
+  padding: 14px 18px;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.25s ease;
+}
+
+.form-string-input::placeholder,
+.form-textarea-message-box::placeholder {
+  color: #A3AED0;
+  opacity: 0.8;
+}
+
+.form-string-input:focus,
+.form-textarea-message-box:focus {
+  border-color: #FA0073; /* Changes borders directly to primary hot pink on user typing focus */
+}
+
+/* Specialized Select dropdown custom indicator overrides values mapping */
+.select-field-chevron-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://w3.org' viewBox='0 0 24 24' fill='none' stroke='%231B2942' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 14px;
+  padding-right: 45px;
+}
+
+.form-textarea-message-box {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Execution Button Form Submission CTA Capsule Button Box */
+.btn-submit-callback {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #FA0073; /* Solid primary filled pink layout anchor button */
+  border: 1px solid #FA0073;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: none;
+  width: max-content; /* Sized tightly based on content width precisely mirroring screenshot */
+  min-width: 180px;
+  box-shadow: 0 6px 18px rgba(250, 0, 115, 0.2);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  margin-top: 8px;
+}
+
+.btn-submit-callback:hover {
+  background-color: #d60062; /* Slightly rich deep shade transitions on active user hover events */
+  border-color: #d60062;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Mobile Responsive Screen Viewport Adaptive Breakpoints Fallbacks
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .contact-grid-container {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  .contact-main-heading {
+    font-size: 2.4rem;
+  }
+
+  .get-in-touch-sidebar-card,
+  .interactive-form-holder-card {
+    height: auto;
+  }
+
+  .callback-enquiry-form {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .care-contact-wrapper {
+    padding: 0 16px;
+  }
+
+  .contact-grid-container {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .contact-main-heading {
+    font-size: 2rem;
+  }
+
+  .form-inputs-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .full-width-field-span {
+    grid-column: span 1;
+  }
+
+  .get-in-touch-sidebar-card {
+    padding: 30px 22px;
+  }
+
+  .interactive-form-holder-card {
+    padding: 30px 20px;
+    height: auto;
+  }
+
+  .form-selection-tab-bar-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    border-radius: 16px;
+  }
+
+  .tab-toggle-btn {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+
+  .btn-submit-callback {
+    width: 100%;
+  }
+}
+
+/* CONTACT SECTION - DESKTOP ALIGNMENT */
+.care-contact-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Move both cards towards the right and reduce their width */
+.contact-grid-container {
+  width: 82%;
+  max-width: 1020px;
+  margin-left: auto;
+  margin-right: 0;
+
+  display: grid !important;
+  grid-template-columns: 0.61fr 1fr !important;
+  gap: 28px !important;
+  align-items: stretch !important;
+}
+
+/* Get In Touch card */
+.get-in-touch-sidebar-card {
+  height: 100%;
+  min-height: 490px;
+  padding: 34px 28px;
+  box-sizing: border-box;
+}
+
+/* Form card */
+.interactive-form-holder-card {
+  height: 100%;
+  min-height: 490px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Form content */
+.callback-enquiry-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Note: No global rule overrides or :root blocks are included to guarantee safe code integration */
+
+.main-site-footer {
+  width: 100%;
+  background-color: #1B2942; /* Premium dark navy background canvas color exactly matching your figma setup */
+  padding: 80px 0 0 0;
+  box-sizing: border-box;
+}
+
+.footer-grid-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid !important;
+  /* 5-Column symmetric grid track framework tailored precisely to screenshot sections */
+  grid-template-columns: 1.3fr 0.8fr 1.1fr 1.1fr 1.1fr !important;
+  gap: 40px !important;
+  align-items: start;
+}
+
+/* ==========================================================================
+   Column 1: Brand Block & Social Icons
+   ========================================================================== */
+.footer-brand-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.footer-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.footer-brand-text h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footer-brand-text span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #FA0073; /* Spec brand highlighted typography sub-label */
+  font-weight: 700;
+}
+
+.footer-brand-tagline {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+  max-width: 260px;
+}
+
+.footer-social-links-row {
+  display: flex;
+  gap: 10px;
+}
+
+.social-outline-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Faint outline container frames */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.25s ease;
+}
+
+.social-outline-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.social-outline-btn:hover {
+  border-color: #FA0073;
+  background-color: #FA0073; /* Smooth pink accent pop state transformation on user cursor focus */
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Columns 2, 3, 4: Standard Menu Link Directory Items Listing
+   ========================================================================== */
+.footer-column-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #FA0073; /* Spec hot pink title headers */
+  margin: 0 0 24px 0;
+  text-transform: uppercase;
+}
+
+.footer-menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-menu-links a {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.footer-menu-links a:hover {
+  color: #ffffff; /* Fades up to full high contrast white layout text on hover events */
+}
+
+/* ==========================================================================
+   Column 5: Contact Vector Rows Specifications
+   ========================================================================== */
+.footer-contact-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-contact-details li {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+}
+
+.contact-svg-icon {
+  width: 15px;
+  height: 16px;
+  color: #FA0073; /* Core pink signature asset vectors indicators */
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.contact-link {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #ffffff;
+}
+
+.contact-plain-string {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Bottom Legal Strip Copyright Section Strip
+   ========================================================================== */
+.footer-copyright-bottom-strip {
+  margin-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06); /* Ultra discrete border partition track line */
+  padding: 24px 0;
+  text-align: center;
+}
+
+.footer-copyright-bottom-strip p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35); /* Soft baseline readable typography tint shadow */
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   Mobile Responsive Screen Viewport Adaptive Breakpoints Fallbacks
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .footer-grid-container {
+    grid-template-columns: 1.5fr 1fr 1.2fr !important; /* Dynamically balances tracks system on tablet viewports */
+    gap: 40px 30px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid-container {
+    grid-template-columns: repeat(2, 1fr) !important; /* Converts layout down to a clean dual column grid setup mapping */
+  }
+}
+
+@media (max-width: 540px) {
+  .footer-grid-container {
+    grid-template-columns: 1fr !important; /* Drops columns down full-width vertically into single river streams stack flow */
+    gap: 35px !important;
+  }
+  .main-site-footer {
+    padding: 60px 0 0 0;
+  }
+}
+
+
+
+
+

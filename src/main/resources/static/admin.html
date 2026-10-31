@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pamban Swami - Command Console</title>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <div class="admin-dashboard-container">
+    
+    <!-- Left Navigation Control Hub Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand-block">
+        <h1 class="sidebar-title">Pamban Swami</h1>
+        <p class="sidebar-subtitle">CONTROL HUB</p>
+      </div>
+      <nav class="sidebar-menu-list">
+        <button class="menu-tab-link active-link" onclick="openSection(event, 'services-manage')">Home Care Sections</button>
+        <button class="menu-tab-link" onclick="openSection(event, 'physio-manage')">Physiotherapy Grid</button>
+        <button class="menu-tab-link" onclick="openSection(event, 'why-manage')">Why Choose Us</button>
+        <button class="menu-tab-link" onclick="openSection(event, 'contact-manage')">Contact & Get-In-Touch</button>
+        <button class="menu-tab-link" onclick="openSection(event, 'appointments-view')">Appointments List</button>
+        <button class="menu-tab-link" onclick="openSection(event, 'header-footer-manage')">Header & Footer Text</button>
+        <button class="menu-tab-link" onclick="openSection(event, 'users-manage')">Admin Accounts</button>
+      </nav>
+      <div class="sidebar-footer-strip">
+        <a href="/admin/logout" style="color: #FA0073; text-decoration: none; font-size: 0.85rem; font-weight: 700; padding: 0 30px; display: block; margin-bottom: 15px;">Secure Logout ⇥</a>
+        <p style="padding: 0 30px;">&copy; 2026 Admin Dashboard</p>
+      </div>
+    </aside>
+
+    <!-- Right Functional Workspace Main Panel -->
+    <main class="admin-workspace-panel">
+      <div id="statusAlertMessage" class="alert-banner-box hidden-alert"></div>
+
+      <!-- 1. HOME CARE SERVICES UPDATE CONTROLLER -->
+      <section id="services-manage" class="workspace-tab-section active-section">
+        <div class="workspace-header-row">
+          <h2>Update Home Care Services Section</h2>
+          <p>Modify card headings, emojis, capsule badge text colors, and upload grid photo assets.</p>
+        </div>
+        
+<form id="homeCareServiceForm"
+      enctype="multipart/form-data"
+      class="admin-visual-form">
+
+    <input type="hidden" id="serviceId" name="serviceId">
+
+    <div class="form-row-split">
+        <div class="input-control-cell">
+            <label>Service Title Heading</label>
+            <input type="text" name="serviceTitle"
+                   placeholder="e.g., Elderly Care" required>
+        </div>
+
+        <div class="input-control-cell">
+            <label>Service Icon / Emoji</label>
+            <input type="text" name="serviceEmoji"
+                   placeholder="e.g., 👴 or 🩺" required>
+        </div>
+    </div>
+
+    <div class="form-row-split">
+        <div class="input-control-cell">
+            <label>Pill Background Theme Accent Color</label>
+            <select name="serviceThemeColor"
+                    class="select-dropdown-box" required>
+                <option value="label-deep-blue">Deep Blue (#1B2942)</option>
+                <option value="label-vibrant-pink">Vibrant Pink (#FA0073)</option>
+            </select>
+        </div>
+
+        <div class="input-control-cell">
+            <label>Upload Service Grid Image</label>
+            <input type="file" name="serviceImageFile"
+                   class="file-input-field"
+                   accept="image/*">
+        </div>
+    </div>
+
+    <button type="submit" id="serviceSubmitButton"
+            class="btn-save-changes">
+        Publish Service Card
+    </button>
+
+    <button type="button" id="cancelServiceEdit"
+            class="btn-save-changes" style="display:none;">
+        Cancel Edit
+    </button>
+</form>
+
+<div class="workspace-header-row" style="margin-top:35px;">
+    <h2>Manage Existing Home Care Services</h2>
+    <p>Edit or delete published service cards.</p>
+</div>
+
+<div id="homeCareServicesList"></div>
+
+      </section>
+
+      
+<!-- PHYSIOTHERAPY SECTION UPDATE CONTROLLER -->
+<section id="physio-manage" class="workspace-tab-section">
+
+    <div class="workspace-header-row">
+        <h2>Update Physiotherapy Section</h2>
+        <p>Manage physiotherapy cards, icons, headings and images.</p>
+    </div>
+
+    <div id="physioStatusMessage" class="status-alert-message hidden-alert"></div>
+
+    <form id="physioServiceForm"
+          enctype="multipart/form-data"
+          class="admin-visual-form">
+
+        <input type="hidden" id="physioId" name="physioId">
+
+        <div class="form-row-split">
+
+            <div class="input-control-cell">
+                <label>Therapy Specialization Heading</label>
+                <input type="text"
+                       name="physioTitle"
+                       placeholder="e.g., Pain Relief Therapy"
+                       required>
+            </div>
+
+            <div class="input-control-cell">
+                <label>Therapy Icon / Emoji</label>
+                <input type="text"
+                       name="physioEmoji"
+                       placeholder="e.g., 🏃 or 🦾"
+                       required>
+            </div>
+
+        </div>
+
+        <div class="form-row-split">
+
+            <div class="input-control-cell">
+                <label>Pill Background Theme Accent Color</label>
+
+                <select name="physioThemeColor"
+                        class="select-dropdown-box"
+                        required>
+
+                    <option value="pill-deep-blue">
+                        Deep Blue (#1B2942)
+                    </option>
+
+                    <option value="pill-vibrant-pink">
+                        Vibrant Pink (#FA0073)
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="input-control-cell">
+                <label>Upload Therapy Grid Image</label>
+
+                <input type="file"
+                       name="physioImageFile"
+                       accept="image/png,image/jpeg,image/webp"
+                       class="file-input-field">
+            </div>
+
+        </div>
+
+        <button type="submit"
+                id="physioSubmitButton"
+                class="btn-save-changes">
+            Publish Therapy Card
+        </button>
+
+        <button type="button"
+                id="cancelPhysioEdit"
+                class="btn-save-changes"
+                style="display:none;">
+            Cancel Edit
+        </button>
+
+    </form>
+
+    <div class="workspace-header-row" style="margin-top:35px;">
+        <h2>Existing Physiotherapy Services</h2>
+        <p>Edit or delete the services displayed on your public website.</p>
+    </div>
+
+    <div id="physioServicesList"></div>
+
+</section>
+
+      <!-- WHY CHOOSE US MANAGEMENT -->
+<section id="why-manage" class="workspace-tab-section">
+
+    <div class="workspace-header-row">
+        <h2>Update Why Choose Us Section</h2>
+        <p>
+            Add, edit, and delete the advantages displayed on your public website.
+        </p>
+    </div>
+
+    <form id="whyChooseUsForm" class="admin-visual-form">
+
+        <input type="hidden" id="whyCardId">
+
+        <div class="card-editor-box">
+
+            <h4>Why Choose Us Card Details</h4>
+
+            <div class="input-control-cell">
+                <label>Card Title</label>
+                <input
+                    type="text"
+                    id="whyCardTitle"
+                    placeholder="Enter card title"
+                    required>
+            </div>
+
+            <div class="input-control-cell">
+                <label>Icon Type</label>
+                <select id="whyIconType" required>
+                    <option value="shield">Shield Icon</option>
+                    <option value="heart">Heart Icon</option>
+                    <option value="rupee">Rupee Symbol</option>
+                    <option value="home">Home Icon</option>
+                </select>
+            </div>
+
+            <div class="input-control-cell">
+                <label>Description</label>
+                <textarea
+                    id="whyCardDescription"
+                    rows="4"
+                    placeholder="Enter card description"
+                    required></textarea>
+            </div>
+
+        </div>
+
+        <div class="form-row-split">
+
+            <button
+                type="submit"
+                class="btn-save-changes"
+                id="whySubmitButton">
+                Add Advantage
+            </button>
+
+            <button
+                type="button"
+                class="btn-save-changes"
+                id="cancelWhyEdit"
+                style="display:none;">
+                Cancel Edit
+            </button>
+
+        </div>
+
+    </form>
+
+    <div class="card-editor-box">
+        <h4>Existing Why Choose Us Cards</h4>
+        <div id="whyChooseUsList">
+            Loading cards...
+        </div>
+    </div>
+
+    <p id="whyStatusMessage"></p>
+
+</section>
+
+      
+<!-- 4. CONTACT DETAILS MANAGEMENT -->
+<section id="contact-manage" class="workspace-tab-section">
+
+    <div class="workspace-header-row">
+        <h2>Manage Contact Details</h2>
+        <p>Add, edit or delete each contact detail independently.</p>
+    </div>
+
+    <div id="contactStatusMessage" class="hidden-alert"></div>
+
+    <div class="form-row-split">
+
+        <div class="input-control-cell">
+            <label>Phone Number</label>
+            <input type="text" id="contactPhone" placeholder="Enter phone number">
+            <button type="button" class="btn-save-changes"
+                    onclick="saveContactField('contactPhone')">
+                Save Phone
+            </button>
+            <button type="button" class="btn-save-changes"
+                    onclick="deleteContactField('contactPhone')">
+                Delete Phone
+            </button>
+        </div>
+
+        <div class="input-control-cell">
+            <label>Email Address</label>
+            <input type="email" id="contactEmail" placeholder="Enter email address">
+            <button type="button" class="btn-save-changes"
+                    onclick="saveContactField('contactEmail')">
+                Save Email
+            </button>
+            <button type="button" class="btn-save-changes"
+                    onclick="deleteContactField('contactEmail')">
+                Delete Email
+            </button>
+        </div>
+
+    </div>
+
+    <div class="form-row-split">
+
+        <div class="input-control-cell">
+            <label>Service Location</label>
+            <input type="text" id="contactLocation" placeholder="Enter service location">
+            <button type="button" class="btn-save-changes"
+                    onclick="saveContactField('contactLocation')">
+                Save Location
+            </button>
+            <button type="button" class="btn-save-changes"
+                    onclick="deleteContactField('contactLocation')">
+                Delete Location
+            </button>
+        </div>
+
+        <div class="input-control-cell">
+            <label>Working Hours</label>
+            <input type="text" id="contactHours" placeholder="Enter working hours">
+            <button type="button" class="btn-save-changes"
+                    onclick="saveContactField('contactHours')">
+                Save Hours
+            </button>
+            <button type="button" class="btn-save-changes"
+                    onclick="deleteContactField('contactHours')">
+                Delete Hours
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- 5. CUSTOMER CALLBACK REQUESTS -->
+<section id="appointments-view" class="workspace-tab-section">
+
+    <div class="workspace-header-row">
+        <h2>Manage Customer Callback Requests</h2>
+        <p>View customer details, call customers and update callback status.</p>
+    </div>
+
+    <div id="callbackStatusMessage" class="hidden-alert"></div>
+
+    <div class="table-scroll-container">
+
+        <table class="inquiries-data-table">
+
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Patient Name</th>
+                    <th>Phone Number</th>
+                    <th>Age / Gender</th>
+                    <th>Requested Service</th>
+                    <th>Message</th>
+                    <th>Request Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="callbackRequestsTableBody">
+                <tr>
+                    <td colspan="9">Loading callback requests...</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+      <!-- 6. GLOBAL HEADER, FOOTER & FIND US CONFIGURATOR -->
+<section id="header-footer-manage" class="workspace-tab-section">
+
+    <div class="workspace-header-row">
+        <h2>Manage Header, Footer & Find Us Information</h2>
+        <p>
+            Add, update and delete your website branding, logo,
+            footer contact information and Find Us details.
+        </p>
+    </div>
+
+    <!-- BRAND NAME AND LOGO -->
+    <div class="card-editor-box">
+
+        <h4>Website Branding</h4>
+
+        <div class="input-control-cell">
+            <label>Brand Heading Name</label>
+            <input
+                type="text"
+                id="globalBrandName"
+                placeholder="Enter brand name"
+            >
+
+            <div class="form-row-split" style="margin-top: 12px;">
+                <button type="button"
+                        class="btn-save-changes"
+                        onclick="saveGlobalField('brandName')">
+                    Add / Update Brand Name
+                </button>
+
+                <button type="button"
+                        class="btn-delete"
+                        onclick="deleteGlobalField('brandName')">
+                    Delete Brand Name
+                </button>
+            </div>
+        </div>
+
+        <hr style="margin: 20px 0;">
+
+        <div class="input-control-cell">
+
+            <label>Website Logo</label>
+
+            <div style="margin: 15px 0;">
+                <img
+                    id="globalLogoPreview"
+                    src=""
+                    alt="Website Logo Preview"
+                    style="
+                        display:none;
+                        max-width:180px;
+                        max-height:100px;
+                        object-fit:contain;
+                        padding:10px;
+                        border:1px solid #ddd;
+                        border-radius:8px;
+                    "
+                >
+                <p id="globalLogoEmptyMessage">
+                    No logo uploaded yet.
+                </p>
+            </div>
+
+            <input
+                type="file"
+                id="globalLogoFile"
+                accept="image/png,image/jpeg,image/webp,image/gif"
+            >
+
+            <div class="form-row-split" style="margin-top:12px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="uploadGlobalLogo()">
+                    Upload / Replace Logo
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalLogo()">
+                    Delete Logo
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER DESCRIPTION -->
+    <div class="card-editor-box" style="margin-top:20px;">
+
+        <h4>Footer Description</h4>
+
+        <div class="input-control-cell">
+
+            <label>Footer Description Summary</label>
+
+            <textarea
+                id="globalFooterDesc"
+                rows="3"
+                placeholder="Enter footer description"
+            ></textarea>
+
+            <div class="form-row-split" style="margin-top:12px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="saveGlobalField('footerDesc')">
+                    Add / Update Description
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalField('footerDesc')">
+                    Delete Description
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER CONTACT INFORMATION -->
+    <div class="card-editor-box" style="margin-top:20px;">
+
+        <h4>Footer Contact Information</h4>
+
+        <!-- PHONE -->
+        <div class="input-control-cell">
+
+            <label>Footer Phone Number(s)</label>
+
+            <input
+                type="text"
+                id="globalFooterPhone"
+                placeholder="Enter phone numbers"
+            >
+
+            <div class="form-row-split" style="margin-top:10px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="saveGlobalField('footerPhoneString')">
+                    Add / Update Phone
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalField('footerPhoneString')">
+                    Delete Phone
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- EMAIL -->
+        <div class="input-control-cell" style="margin-top:20px;">
+
+            <label>Footer Email ID</label>
+
+            <input
+                type="email"
+                id="globalFooterEmail"
+                placeholder="Enter email address"
+            >
+
+            <div class="form-row-split" style="margin-top:10px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="saveGlobalField('footerEmailString')">
+                    Add / Update Email
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalField('footerEmailString')">
+                    Delete Email
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CITY -->
+        <div class="input-control-cell" style="margin-top:20px;">
+
+            <label>Footer Operating City / Region</label>
+
+            <input
+                type="text"
+                id="globalFooterCity"
+                placeholder="Enter city or region"
+            >
+
+            <div class="form-row-split" style="margin-top:10px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="saveGlobalField('footerCityString')">
+                    Add / Update City
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalField('footerCityString')">
+                    Delete City
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FIND US INFORMATION -->
+    <div class="card-editor-box" style="margin-top:20px;">
+
+        <h4>Find Us Section Details</h4>
+
+        <!-- ADDRESS -->
+        <div class="input-control-cell">
+
+            <label>Google Business Physical Address</label>
+
+            <textarea
+                id="globalFindUsAddress"
+                rows="3"
+                placeholder="Enter business address"
+            ></textarea>
+
+            <div class="form-row-split" style="margin-top:10px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="saveGlobalField('findUsLocationString')">
+                    Add / Update Address
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalField('findUsLocationString')">
+                    Delete Address
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAP URL -->
+        <div class="input-control-cell" style="margin-top:20px;">
+
+            <label>Google Maps URL</label>
+
+            <input
+                type="url"
+                id="globalFindUsMapUrl"
+                placeholder="Enter Google Maps URL"
+            >
+
+            <div class="form-row-split" style="margin-top:10px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="saveGlobalField('findUsMapUrl')">
+                    Add / Update Map URL
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalField('findUsMapUrl')">
+                    Delete Map URL
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- COPYRIGHT AND HEADER PHONE -->
+    <div class="card-editor-box" style="margin-top:20px;">
+
+        <h4>Global Website Information</h4>
+
+        <!-- COPYRIGHT -->
+        <div class="input-control-cell">
+
+            <label>Global Copyright Text</label>
+
+            <input
+                type="text"
+                id="globalCopyright"
+                placeholder="Enter copyright text"
+            >
+
+            <div class="form-row-split" style="margin-top:10px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="saveGlobalField('copyrightText')">
+                    Add / Update Copyright
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalField('copyrightText')">
+                    Delete Copyright
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEADER PHONE -->
+        <div class="input-control-cell" style="margin-top:20px;">
+
+            <label>Header Display Phone Number</label>
+
+            <input
+                type="text"
+                id="globalHeaderPhone"
+                placeholder="Enter header phone number"
+            >
+
+            <div class="form-row-split" style="margin-top:10px;">
+
+                <button
+                    type="button"
+                    class="btn-save-changes"
+                    onclick="saveGlobalField('headerPhone')">
+                    Add / Update Header Phone
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-delete"
+                    onclick="deleteGlobalField('headerPhone')">
+                    Delete Header Phone
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATUS MESSAGE -->
+    <div
+        id="globalSettingsStatus"
+        role="status"
+        style="margin-top:20px;font-weight:600;">
+    </div>
+</section>
+    
+<!-- 7. ADMIN ACCOUNT MANAGEMENT -->
+<section id="users-manage" class="workspace-tab-section">
+
+    <div class="workspace-header-row">
+        <h2>Manage Staff Accounts</h2>
+        <p>Create and manage staff login accounts. Staff members can access only the Appointments section.</p>
+    </div>
+
+    <div id="accountStatusMessage" class="hidden-alert"></div>
+
+    <form id="staffAccountForm" class="admin-visual-form">
+
+        <input type="hidden" id="staffAccountId">
+
+        <div class="input-control-cell">
+            <label>Staff Username</label>
+            <input
+                type="text"
+                id="staffUsername"
+                placeholder="Enter staff username"
+                required>
+        </div>
+
+        <div class="input-control-cell">
+            <label>Password</label>
+            <input
+                type="password"
+                id="staffPassword"
+                placeholder="Enter password (minimum 8 characters)">
+            <small>Leave password empty when editing to keep the existing password.</small>
+        </div>
+
+        <button type="submit"
+                id="staffAccountSubmit"
+                class="btn-save-changes">
+            Create Staff Account
+        </button>
+
+        <button type="button"
+                id="cancelStaffEdit"
+                class="btn-save-changes"
+                style="display:none;">
+            Cancel Edit
+        </button>
+
+    </form>
+
+    <div class="workspace-header-row" style="margin-top:35px;">
+        <h2>Existing Staff Accounts</h2>
+        <p>View, edit, activate, deactivate or delete staff accounts.</p>
+    </div>
+
+    <div class="table-scroll-container">
+        <table class="inquiries-data-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Created Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="staffAccountsTableBody">
+                <tr>
+                    <td colspan="5">Loading staff accounts...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
